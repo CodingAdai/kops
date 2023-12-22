@@ -1,0 +1,14 @@
+.github
+.husky
+.vscode
+node_modules
+src
+public
+tests
+types
+.editorconfig
+.env*
+.eslintignore
+package.json
+pnpm-lock.yaml
+vite.config.ts
