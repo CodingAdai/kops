@@ -6,10 +6,27 @@
 
 package config
 
+import "os"
+
 const (
-	ListenAddr     = "127.0.0.1:9090"
-	Kubeconfig     = "E:\\Cillian\\VirtualMachine\\config"
-	PodLogTailLine = 2000
-	AdminUser      = "admin"
-	AdminPwd       = "123456"
+	envKeyKubeconfigPath = "KUBECONFIG_PATH"
+	ListenAddr           = "127.0.0.1:9091"
+	Kubeconfig           = "E:\\Cillian\\VirtualMachine\\config"
+	PodLogTailLine       = 2000
+	AdminUser            = "admin"
+	AdminPwd             = "123456"
 )
+
+func GetKubeconfigPath() string {
+	// get kubeconfig path from env
+	kubeconfigPath := os.Getenv(envKeyKubeconfigPath)
+	if kubeconfigPath == "" {
+		kubeconfigPath = Kubeconfig
+	}
+
+	if kubeconfigPath == "" {
+		panic("kubeconfig path is empty")
+	}
+
+	return kubeconfigPath
+}
