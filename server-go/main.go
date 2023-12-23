@@ -28,11 +28,11 @@ func main() {
 	//初始化路由
 	controller.Router.InitApiRouter(r)
 
-	r.StaticFile("/", "./dist/index.html")
-	r.StaticFile("/index.html", "./dist/index.html")
-	r.StaticFile("/app-loading.css", "./dist/app-loading.css")
-	r.StaticFile("/app-loading2.css", "./dist/app-loading2.css")
-	r.Static("/static", "./dist/static")
+	r.StaticFile("/", "../dist/index.html")
+	r.StaticFile("/index.html", "../dist/index.html")
+	r.StaticFile("/app-loading.css", "../dist/app-loading.css")
+	r.StaticFile("/app-loading2.css", "../dist/app-loading2.css")
+	r.Static("/static", "../dist/static")
 
 	//http server启动
 	r.Run(config.ListenAddr)

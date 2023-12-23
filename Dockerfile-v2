@@ -1,0 +1,25 @@
+# syntax=docker/dockerfile:1
+
+FROM golang:1.21.4 AS build
+WORKDIR /src
+
+COPY server-go server-go
+
+RUN cd server-go && go mod download -x
+
+# This is the architecture you’re building for, which is passed in by the builder.
+# Placing it here allows the previous steps to be cached across architectures.
+
+# Build the application.
+RUN cd server-go && go build -o server-go .
+
+FROM alpine:latest as final
+LABEL authors="daixiaodong"
+
+WORKDIR /app
+
+COPY --from=build /src/server-go/server-go .
+
+COPY dist dist
+
+ENTRYPOINT ["./server-go"]

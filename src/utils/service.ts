@@ -13,7 +13,9 @@ function logout() {
 /** 创建请求实例 */
 function createService() {
   // 创建一个 axios 实例命名为 service
-  const service = axios.create()
+  const service = axios.create({
+    baseURL: import.meta.env.VITE_BASE_API,
+  })
   // 请求拦截
   service.interceptors.request.use(
     (config) => config,

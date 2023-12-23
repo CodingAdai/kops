@@ -107,8 +107,8 @@ const loginFormData: LoginRequestData = reactive({
 // 登录表单校验规则
 const loginFormRules: FormRules = {
   username: [{ 
-    required: true, 
-    message: "请输入用户名", 
+    required: true,
+    message: "请输入用户名",
     trigger: "blur" }],
   password: [
     { required: true, message: "请输入密码", trigger: "blur" },
@@ -125,7 +125,7 @@ const handleLogin = () => {
       useUserStore()
         .login(loginFormData)
         .then(() => {
-          router.push({ path: "/" })
+          router.push({path: "/kube-config"})
         })
         .catch(() => {
           createCode()
@@ -164,7 +164,7 @@ createCode()
   width: 100%;
   min-height: 100%;
   position: relative;
-  
+
 
   .theme-switch {
     position: fixed;
@@ -172,15 +172,15 @@ createCode()
     left: 5%;
     cursor: pointer;
   }
-  
+
   .login-card {
-    
+
     width: 480px;
     border-radius: 30px;
     box-shadow: 0 0 10px #30b2d3;
     background-color: #ffffff;
     overflow: hidden;
-    
+
 
     .title {
       display: flex;

@@ -45,6 +45,13 @@ export const constantRoutes: RouteRecordRaw[] = [
     }
   },
   {
+    path: "/kube-config",
+    component: () => import("@/views/config/KubeConfig.vue"),
+    meta: {
+      hidden: true
+    }
+  },
+  {
     path: "/",
     component: Layouts,
     redirect: "/dashboard",
@@ -95,7 +102,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: "Machines",
         meta: {
           title: "物理资产",
-          
+
         }
       },
       {
@@ -104,7 +111,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: "Others",
         meta: {
           title: "其他",
-         
+
         }
       }
     ]
@@ -145,7 +152,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       title: "应用负载",
       elIcon: "Menu",
-    
+
   },
     children: [
         {
@@ -187,7 +194,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       }
     ]
   },
- 
+
 ]
 
 /**

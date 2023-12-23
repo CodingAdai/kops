@@ -1,0 +1,4 @@
+- [ ] admin密码随机生成
+- [ ] 不使用mock登录
+- [ ] kubeconfig 配置
+- [ ] API请求

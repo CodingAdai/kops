@@ -39,5 +39,6 @@ func (r *router) InitApiRouter(router *gin.Engine) {
 		GET("/api/k8s/namespace/del", Namespace.DeleteNamespace).
 		//pv操作
 		GET("/api/k8s/pvs", Pv.GetPvs).
-		GET("/api/k8s/pv/detail", Pv.GetPvDetail)
+		GET("/api/k8s/pv/detail", Pv.GetPvDetail).
+		POST("/api/k8s/kubeconfig/content", KubeConfig.updateKubeConfigContent)
 }
